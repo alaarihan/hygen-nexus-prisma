@@ -1,0 +1,44 @@
+{
+  "name": "prisma-schema-gen",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "description": "Prisma Schema generator",
+  "scripts": {
+    "start": "node dist/server",
+    "dev": "ts-node-dev --no-notify --respawn --transpile-only app/server",
+    "clean": "rm -rf dist",
+    "build": "npm -s run clean && npm -s run generate && tsc",
+    "generate:prisma": "prisma generate",
+    "create-migration": "prisma migrate dev",
+    "db-push": "prisma db push --preview-feature",
+    "db-pull": "prisma db pull",
+    "generate:nexus": "ts-node --transpile-only app/nexusSchema",
+    "generate:models": "node index",
+    "prettier": "prettier --write app/"
+  },
+  "dependencies": {
+    "@paljs/plugins": "^3.0.1",
+    "@prisma/client": "^2.21.2",
+    "fastify": "^3.14.2",
+    "mercurius": "^7.4.0",
+    "nexus": "^1.0.0",
+    "nexus-plugin-prisma": "^0.34.1"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.41",
+    "prettier": "^2.2.1",
+    "prisma": "2.21.2",
+    "ts-node": "^9.1.1",
+    "ts-node-dev": "^1.1.6",
+    "typescript": "^4.2.4"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "semi": false,
+    "trailingComma": "all"
+  },
+  "repository": "",
+  "author": "Alaa Rihan"
+}
